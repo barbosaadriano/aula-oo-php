@@ -8,21 +8,22 @@ error_reporting(E_ALL);
 ////////////////////////////////////////////////////////////////////////////////
 
 require '../class/sgbd.php';
+require '../class/BaseDeDados.php';
+
 $servidor = new sgbd('mysql');
-
-echo $servidor->tipo;
-
 $servidor->setEndereco("localhost");
 $servidor->usuario = "root";
 $servidor->senha = "";
 $servidor->setPorta(3306);
 
+$base = new BaseDeDados("test", $servidor);
+$base->tipo = "mysql";
+
 try {
-    $servidor->conectar();
+    $base->conectar();
+    var_dump($base->conexao);
 } catch (Exception $exc) {
     echo $exc->getMessage() . $exc->getTraceAsString();
 }
+$base->desconectar();
 
-$servidor->desconectar();
-
-var_dump($servidor);
