@@ -12,10 +12,11 @@ $servidor = new sgbd('mysql');
 
 echo $servidor->tipo;
 
-$servidor->endereco = "localhost";
+$servidor->setEndereco("localhost");
 $servidor->usuario = "root";
 $servidor->senha = "";
-$servidor->porta = 3306;
+$servidor->setPorta(3306);
+
 try {
     $servidor->conectar();
 } catch (Exception $exc) {

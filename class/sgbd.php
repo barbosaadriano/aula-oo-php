@@ -7,14 +7,28 @@ class sgbd {
      * @var mysqli 
      */
     public $conexao;
-    public $endereco;
-    public $porta;
+    protected $endereco;
+    protected $porta;
     public $senha;
     public $usuario;
     public $tipo;
 
     function __construct($tipo) {
         $this->tipo = $tipo;
+    }
+
+    public function setEndereco($endereco) {
+        $this->endereco = $endereco;
+    }
+
+    function setPorta($porta) {
+        if (is_numeric($porta)) {
+            $this->porta = $porta;
+        }
+    }
+
+    function getPorta() {
+        return $this->porta;
     }
 
     function conectar() {
@@ -36,4 +50,5 @@ class sgbd {
     public function __destruct() {
         $this->desconectar();
     }
+
 }
