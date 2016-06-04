@@ -7,6 +7,9 @@ class sgbd {
     var $senha;
     var $usuario;
     var $tipo;
-    
+
+    function __construct($tipo) {
+        $this->tipo = $tipo;
+    }
 
 }
