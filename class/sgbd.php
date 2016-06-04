@@ -21,6 +21,10 @@ class sgbd {
         $this->endereco = $endereco;
     }
 
+    function getEndereco() {
+        return $this->endereco;
+    }
+
     public function setPorta($porta) {
         if (is_numeric($porta)) {
             $this->porta = $porta;
@@ -29,17 +33,6 @@ class sgbd {
 
     public function getPorta() {
         return $this->porta;
-    }
-
-    public function desconectar() {
-        if ($this->conexao) {
-            mysqli_close($this->conexao);
-            $this->conexao = null;
-        }
-    }
-
-    public function __destruct() {
-        $this->desconectar();
     }
 
 }

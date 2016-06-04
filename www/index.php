@@ -25,5 +25,6 @@ try {
 } catch (Exception $exc) {
     echo $exc->getMessage() . $exc->getTraceAsString();
 }
+
 $base->desconectar();
 
