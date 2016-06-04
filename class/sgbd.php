@@ -1,7 +1,10 @@
 <?php
 
 class sgbd {
-
+    /**
+     *
+     * @var mysqli 
+     */
     var $conexao;
     var $endereco;
     var $porta;
@@ -15,9 +18,9 @@ class sgbd {
 
     function conectar() {
         if ($this->tipo == 'mysql') {
-            $this->conexao = mysqli_connect($this->endereco, $this->usuario, $this->senha, 'test', $this->porta);
+            $this->conexao = mysqli_connect($this->endereco, $this->usuario, $this->senha, 'test',  $this->porta);
             if (!$this->conexao) {
-                echo "Erro: " . mysqli_error();
+                throw new Exception(mysqli_connect_error());
             }
         }
     }
