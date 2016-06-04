@@ -19,9 +19,9 @@ $servidor->porta = 3306;
 try {
     $servidor->conectar();
 } catch (Exception $exc) {
-    echo $exc->getMessage().$exc->getTraceAsString();
+    echo $exc->getMessage() . $exc->getTraceAsString();
 }
 
-
+$servidor->desconectar();
 
 var_dump($servidor);
