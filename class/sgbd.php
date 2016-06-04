@@ -6,12 +6,12 @@ class sgbd {
      *
      * @var mysqli 
      */
-    var $conexao;
-    var $endereco;
-    var $porta;
-    var $senha;
-    var $usuario;
-    var $tipo;
+    public $conexao;
+    public $endereco;
+    public $porta;
+    public $senha;
+    public $usuario;
+    public $tipo;
 
     function __construct($tipo) {
         $this->tipo = $tipo;
@@ -29,6 +29,7 @@ class sgbd {
     function desconectar() {
         if ($this->conexao) {
             mysqli_close($this->conexao);
+            $this->conexao = null;
         }
     }
 
