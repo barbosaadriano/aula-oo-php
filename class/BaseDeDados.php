@@ -1,7 +1,5 @@
 <?php
 
-require_once 'sgbd.php';
-
 /**
  * Description of BaseDeDados
  *
