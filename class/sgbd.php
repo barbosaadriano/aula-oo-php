@@ -12,4 +12,14 @@ class sgbd {
         $this->tipo = $tipo;
     }
 
+    function conectar() {
+        if ($this->tipo == 'mysql') {
+            mysqli_connect($this->endereco, $this->usuario, $this->senha, 'test', $this->porta);
+        }
+    }
+
+    function desconectar() {
+        
+    }
+
 }
