@@ -8,6 +8,7 @@ error_reporting(E_ALL);
 ////////////////////////////////////////////////////////////////////////////////
 
 require './autoload.php';
+
 use \Alfa\SGBD;
 use \Alfa\BaseDeDados;
 
@@ -28,3 +29,5 @@ try {
 }
 
 $base->desconectar();
+
+echo "<a href=\"./cadastro.php\">Cadastros</a>";
