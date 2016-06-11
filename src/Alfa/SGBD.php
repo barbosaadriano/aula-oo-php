@@ -1,12 +1,11 @@
 <?php
-
-class sgbd {
+namespace Alfa;
+class SGBD {
 
     /**
      *
      * @var mysqli 
      */
-    public $conexao;
     protected $endereco;
     protected $porta;
     public $senha;

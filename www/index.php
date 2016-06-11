@@ -7,16 +7,15 @@ error_reporting(E_ALL);
 
 ////////////////////////////////////////////////////////////////////////////////
 
-require '../class/sgbd.php';
-require '../class/BaseDeDados.php';
+require './autoload.php';
 
-$servidor = new sgbd('mysql');
+$servidor = new \Alfa\SGBD('mysql');
 $servidor->setEndereco("localhost");
 $servidor->usuario = "root";
 $servidor->senha = "";
 $servidor->setPorta(3306);
 
-$base = new BaseDeDados("test", $servidor);
+$base = new \Alfa\BaseDeDados("test", $servidor);
 $base->tipo = "mysql";
 
 try {
@@ -27,4 +26,3 @@ try {
 }
 
 $base->desconectar();
-

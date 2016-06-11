@@ -1,5 +1,5 @@
 <?php
-
+namespace Alfa;
 /**
  * Description of BaseDeDados
  *
@@ -11,7 +11,7 @@ class BaseDeDados {
     public $nome;
     public $dependencia;
 
-    public function __construct($nome, sgbd $servidor) {
+    public function __construct($nome, \Alfa\SGBD $servidor) {
         $this->nome = $nome;
         $this->dependencia = $servidor;
     }
