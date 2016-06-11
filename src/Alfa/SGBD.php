@@ -1,6 +1,6 @@
 <?php
 namespace Alfa;
-class SGBD {
+class SGBD implements Interfaces\SGBD {
 
     /**
      *
@@ -14,6 +14,10 @@ class SGBD {
 
     public function __construct($tipo) {
         $this->tipo = $tipo;
+    }
+    
+    public function __get($name) {
+        return $this->endereco;
     }
 
     public function setEndereco($endereco) {

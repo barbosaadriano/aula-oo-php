@@ -20,6 +20,8 @@ $servidor->senha = "";
 $servidor->setPorta(3306);
 $base = new BaseDeDados("test", $servidor);
 
+echo $servidor->endereco;
+
 try {
     $base->conectar();
 } catch (\Exception $exc) {
@@ -27,8 +29,12 @@ try {
 }
 
 $produto = new Produto($base);
-$produto->nome = "Lava Roupas Consul";
+$produto->nome = "Teste asd asd asd";
 $produto->preco = 907.00;
+$produto->setId(123);
+echo $produto->getId();
+die;
+
 try {
     $produto->create();    
 } catch (\Exception $exc) {

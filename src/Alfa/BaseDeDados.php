@@ -1,4 +1,5 @@
 <?php
+
 namespace Alfa;
 
 /**
@@ -23,6 +24,7 @@ class BaseDeDados {
             if (!$this->conexao) {
                 throw new \Exception(mysqli_connect_error());
             }
+            self::log("Conecatado ".date_format(new \DateTime(),'d/m/Y H:i:s')."\r\n");
         }
     }
 
@@ -35,6 +37,10 @@ class BaseDeDados {
 
     public function __destruct() {
         $this->desconectar();
+    }
+
+    public static function log($mensagem) {
+        file_put_contents("../logs/msg.log", $mensagem);
     }
 
 }

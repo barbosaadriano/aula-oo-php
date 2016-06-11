@@ -24,5 +24,15 @@ class Produto {
     function __construct(\Alfa\BaseDeDados $base) {
         self::$dependencia = $base;
     }
+    
+    static function getId() {
+        return self::$id;
+    }
+
+    static function setId($id) {
+        self::$id = $id;
+    }
+
+
 
 }

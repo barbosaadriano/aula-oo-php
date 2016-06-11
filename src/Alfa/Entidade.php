@@ -1,12 +1,17 @@
 <?php
 
-namespace Alfa\Traits;
+namespace Alfa;
 
-trait Create {
+/**
+ * Description of Entidade
+ *
+ * @author Administrador
+ */
+abstract class Entidade {
 
+    abstract public function setEndereco($endereco);
     
-
-    public function create() {
+     public function create() {
 
         $entidade = strtolower(substr(__CLASS__, strrpos(__CLASS__, "\\") + 1));
         $attrs = get_object_vars($this);
@@ -20,5 +25,4 @@ trait Create {
             throw new \Exception(mysqli_error(self::$dependencia->conexao));
         }
     }
-
 }
