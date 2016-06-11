@@ -1,5 +1,6 @@
 <?php
 namespace Alfa;
+
 /**
  * Description of BaseDeDados
  *
@@ -11,7 +12,7 @@ class BaseDeDados {
     public $nome;
     public $dependencia;
 
-    public function __construct($nome, \Alfa\SGBD $servidor) {
+    public function __construct($nome, SGBD $servidor) {
         $this->nome = $nome;
         $this->dependencia = $servidor;
     }
@@ -20,7 +21,7 @@ class BaseDeDados {
         if ($this->dependencia->tipo == 'mysql') {
             $this->conexao = mysqli_connect($this->dependencia->getEndereco(), $this->dependencia->usuario, $this->dependencia->senha, $this->nome, $this->dependencia->getPorta());
             if (!$this->conexao) {
-                throw new Exception(mysqli_connect_error());
+                throw new \Exception(mysqli_connect_error());
             }
         }
     }

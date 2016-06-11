@@ -8,20 +8,22 @@ error_reporting(E_ALL);
 ////////////////////////////////////////////////////////////////////////////////
 
 require './autoload.php';
+use \Alfa\SGBD;
+use \Alfa\BaseDeDados;
 
-$servidor = new \Alfa\SGBD('mysql');
+$servidor = new SGBD('mysql');
 $servidor->setEndereco("localhost");
 $servidor->usuario = "root";
 $servidor->senha = "";
 $servidor->setPorta(3306);
 
-$base = new \Alfa\BaseDeDados("test", $servidor);
+$base = new BaseDeDados("test", $servidor);
 $base->tipo = "mysql";
 
 try {
     $base->conectar();
     var_dump($base->conexao);
-} catch (Exception $exc) {
+} catch (\Exception $exc) {
     echo $exc->getMessage() . $exc->getTraceAsString();
 }
 
